@@ -1,4 +1,4 @@
-/*Affichage du site dans le navigateur*/
+/*Display of the site in the browser*/
 
 html, body {
     margin: 0;
@@ -6,58 +6,63 @@ html, body {
     height: 100%;
 }
 
-/*Affichage du main*/
+/*Display of the main*/
 
 .main {
-    height: 100%; /*C'est mieux que vh*/
-    width: 100%; /*Avec 100 vw, prends la scrollbar en compte*/
+    height: 100%; /*Better than vh*/
+    width: 100%; /*With 100 vw, takes the scrollbar into account*/
     margin: 0;
-    box-sizing: border-box; /*Les gaps sont pris en compte pour la taille*/
+    box-sizing: border-box; /*Gaps are taken into account for the size*/
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    grid-template-rows: repeat(5, 1fr);
+    display: grid; /*A grid display to set up my two parts*/
+    grid-template-columns: repeat(4, 1fr); /*4 columns of equal sizes*/
+    grid-gap: 10px; /*The gap within the parts of the grid*/
+    grid-template-rows: repeat(5, 1fr); /*5 rows of equal sizes*/
 
-    background-color: #d04bb7;
+    background-color: #d04bb7; /*Put the background in pink*/
 }
 
 
-/*Je m'occupe de la partie supérieure du main*/
+/*Superior part of the main*/
 
 .logo {
     grid-column: 1;
     grid-row: 1;
-    margin: 10px;
+    margin: 10px; /*The logo is set in the left corner*/
 }
 
 .logo img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: contain; /*The logo keeps its proportions but fits in the container*/
 }
 
 .header-menu {
-    grid-column: 4;
-    grid-row: 1;
-    display: flex;
+    grid-column: 4; /*The menu in the header is in the left corner*/
+    grid-row: 1; /*Still first row*/
+    display: flex; /*Items are put in it with flex*/
     justify-content: end; /*puts on the right*/
     align-items: center; /*centers vertically*/
     gap: 30px;
     margin: 10px;
 }
 
+/*The links, AKA the buttons to navigate*/
+
 .header-menu a {
     background: white;
     color: #d04bb7;
-    padding: 20px 40px;
+    padding: 20px 40px; /*Creates a rectangle around the text*/
     clip-path: polygon(15% 0%, 0% 30%, 0% 100%, 85% 100%, 100% 70%, 100% 0%);
+    /*Designs a cool shape*/
 
-    text-decoration: none;
+    text-decoration: none; /*Removes the underline*/
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
-    font-weight: bold;
+    font-weight: bold; /*The font settings*/
 }
+
+/*For when the buttons are covered by the cursor*/
 
 #projects:hover {
     background: #39336a;
@@ -69,16 +74,22 @@ html, body {
     color: white;
 }
 
+/*IDs to customize according to the theme of the page*/
+
+/*The menu for the phone size*/
+
 .menu_phone {
-  display: none;
-  font-size: 2em;
+  display: none; /*Invisible at first*/
+  font-size: 2em; /*Adjustments*/
   cursor: pointer;
   color: white;
 }
 
+/*The buttons for the menu on the phone*/
+
 .buttons_phone {
-    display: none;
-    flex-direction: column;
+    display: none; /*Invisible at first*/
+    flex-direction: column; /*The display method*/
     gap: 10px;
     background: #d04bb7;
     position: absolute;
@@ -88,17 +99,18 @@ html, body {
     z-index: 1000;
 }
 
+/*When the screen becomes too small*/
 @media (max-width: 768px) {
   .menu_phone {
-    display: block;
+    display: block; /*We see the phone menu*/
   }
 
   .header-menu a {
-    display: none; /* Hides the buttons */
+    display: none; /* Hides the regular buttons */
   }
 
   .buttons_phone.show {
-    display: flex;
+    display: flex; /*The new buttons appear*/
   }
 
     .buttons_phone a {
@@ -108,19 +120,20 @@ html, body {
 }
 
 
-/* Je m'occupe du reste du main*/
+/*Rest of the main*/
 
 .main-text {
-    display: grid; /*Me permets de répartir les items dedans sur la grille*/
-    grid-template-columns: subgrid;
-    grid-template-rows: subgrid; /*La grille est la même que la principale*/
+    display: grid; /*Another grid*/
+    grid-template-columns: subgrid; /*Uses the grid of the main*/
+    grid-template-rows: subgrid; 
 
-    grid-column: 1 / 4; /*Le bloc est sur les colonnes 1 et 2*/
-    grid-row: 2 / 5; /*Le bloc est sur les lignes 2 à 4*/
+    grid-column: 1 / 4; /*Block on column 1, 2 and 3*/
+    grid-row: 2 / 5; /*Block on rows 2, 3 and 4*/
     justify-content: center; /*centers vertically*/
     align-items: center;
 }
 
+/*Settings for the text*/
 .main-text p {
     margin: 5%;
     grid-column: 1 / 4;
@@ -133,13 +146,15 @@ html, body {
     font-size: 40px;
 }
 
-/*PROJECT PAGE PRINCIPALE*/
+/*PROJECT PART*/
+
+/*Similar to main*/
 
 .project {
-    height: 80%; /*C'est mieux que vh*/
-    width: 100%; /*Avec 100 vw, prends la scrollbar en compte*/
+    height: 80%; 
+    width: 100%;
     margin: 0;
-    box-sizing: border-box; /*Les gaps sont pris en compte pour la taille*/
+    box-sizing: border-box;
 
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
@@ -148,6 +163,8 @@ html, body {
 
     background-color: #39336a;
 }
+
+/*The titles*/
 
 .project-titles {
     grid-column: 1;
@@ -160,6 +177,8 @@ html, body {
     align-items: center;
 }
 
+/*This object contains each title individually, and manages them individually*/
+
 .project-titles p {
     margin: 5%;
 
@@ -168,7 +187,10 @@ html, body {
     font-style: italic;
     font-weight: bold;
     font-size: 50px;
+    /*Visual settings*/
 }
+
+/*To have the right row and the clip for the visuals*/
 
 #SCHOOL {
     grid-row: 1;
@@ -183,6 +205,8 @@ html, body {
     grid-row: 3;
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 90% 100%, 10% 100%, 0% 75%);
 }
+
+/*Button to the project section*/
 
 .project-button {
     grid-column: 3;
@@ -212,17 +236,20 @@ html, body {
 }
 
 /*Display for phone and tablet*/
+/*Similar to the main*/
 @media (max-width: 1100px) 
 {
     .project-titles {
         display: none;
     }
+    /*Titles are removed*/
 
+    /*The structure is now the projects in a column and the button underneath*/
     .project {
     height: 100%; /*Better than vh*/
     width: 100%; /*With 100 vw, takes the scrollbar into account*/
     margin: 0;
-    box-sizing: border-box; /*Les gaps sont pris en compte pour la taille*/
+    box-sizing: border-box;
 
     align-items: center;
 
@@ -261,6 +288,7 @@ html, body {
     font-weight: bold;
     }
 
+    /*Update to the clipping of the displays*/
     #SCHOOL {
         grid-row: 1;
         clip-path: polygon(10% 0%, 90% 0%, 100% 25%, 100% 100%, 0% 100%, 0% 25%);
@@ -279,13 +307,15 @@ html, body {
     }
 
 }
-/*CAMPS PAGE PRINCIPALE*/
+/*CAMPS MAIN PAGE*/
+
+/*Exactly the same as projects, but with different colors and positions*/
 
 .camps {
-    height: 80%; /*C'est mieux que vh*/
-    width: 100%; /*Avec 100 vw, prends la scrollbar en compte*/
+    height: 80%;
+    width: 100%; 
     margin: 0;
-    box-sizing: border-box; /*Les gaps sont pris en compte pour la taille*/
+    box-sizing: border-box;
 
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
@@ -427,6 +457,9 @@ html, body {
 
 /*SMALL FOR MAIN PAGE*/
 
+/*Appearance of a small*/
+/*Two blocks grid, one with text, one with image*/
+
 .small {
     width: 200px;
     max-height: 80px;
@@ -442,6 +475,8 @@ html, body {
     grid-template-columns: 1fr 1fr;
 }
 
+/*Text of the small for the projects*/
+
 .small h2 {
     grid-column: 1;
     align-items: center;
@@ -453,6 +488,8 @@ html, body {
     font-size: 1rem;
 }
 
+/*Text for the camps*/
+
 .small h3 {
     grid-column: 1;
     align-items: center;
@@ -463,6 +500,8 @@ html, body {
     color: #e59498;
     font-size: 1rem;
 }
+
+/*The image in the small*/
 
 .small img {
     grid-column: 2;

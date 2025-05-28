@@ -5,10 +5,10 @@ html, body {
 }
 
 .main {
-    height: 100%; /*C'est mieux que vh*/
-    width: 100%; /*Avec 100 vw, prends la scrollbar en compte*/
+    height: 100%;
+    width: 100%;
     margin: 0;
-    box-sizing: border-box; /*Les gaps sont pris en compte pour la taille*/
+    box-sizing: border-box; 
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -124,16 +124,20 @@ html, body {
     font-size: 40px;
 }
 
-/*AFFICHAGE PROJETS*/
+/*DISPLAY PROJECTS*/
+
+/*The main container*/
 
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*Autoadjust*/
     gap: 1em;
     padding: 1em;
 
     background:#39336a;
 }
+
+/*Visuals of the small*/
 
 .small {
     width: 200px;
@@ -170,6 +174,8 @@ html, body {
     border: 2px solid #555;
 }
 
+/*Container for the little p*/
+
 .key-words {
     grid-row: 3;
     display: flex;
@@ -191,8 +197,10 @@ html, body {
     font-size: 0.8em;
 }
 
-.display {
-    display: none;
+/*The display part*/
+
+.display { /*The main container and dark background*/
+    display: none; /*Invisible at first*/
 
     position: fixed;
     z-index: 999;
@@ -205,6 +213,8 @@ html, body {
 
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+/*The white box*/
 
 .display-content {
     display: grid;
@@ -219,6 +229,8 @@ html, body {
     text-align: center;
     position: relative;
 }
+
+/*The title*/
 
 .display-content h2 {
     grid-column: 1 / 4;
@@ -237,7 +249,7 @@ html, body {
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    display: flex;
+    display: flex; /*Limits to adjust to the size and rest of the content*/
     justify-content: center;
     align-items: center;
 }
@@ -257,10 +269,6 @@ html, body {
     font-weight: bold;
     color: white;
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 97% 100%, 3% 100%, 0% 97%);
-}
-
-.description br {
-    font-size: 25%;
 }
 
 .display-content-role {
@@ -307,6 +315,8 @@ html, body {
     font-size: 0.8em;
 }
 
+/*The close button*/
+
 .close {
     position: absolute;
     top: 10px;
@@ -316,6 +326,8 @@ html, body {
     color: #555;
     cursor: pointer;
 }
+
+/*Adjustment for phone*/
 
 @media (max-width: 700px)
 {
@@ -353,6 +365,7 @@ html, body {
     .display-image {
         display: none;
     }
+    /*The image is removed*/
 
     .display-image img {
         width: 100%;
@@ -384,6 +397,7 @@ html, body {
     .display-content-key-words {
         display: none;
     }
+    /*The keywords are removed*/
 
     .close {
         position: absolute;
